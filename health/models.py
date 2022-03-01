@@ -5,7 +5,7 @@ class doctor(models.Model):
 
 class client(models.Model):
     name = models.CharField(max_length=100, blank=True)
-    doctor = models.ForeignKey(doctor,on_delete=models.CASCADE,related_name='doctor')
+    doctor = models.ForeignKey(doctor,on_delete=models.CASCADE,blank=True, null=True,related_name='doctor')
 
 class appointment(models.Model):
     date = models.DateTimeField()
