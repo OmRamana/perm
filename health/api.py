@@ -16,7 +16,7 @@ class clientViewSet(viewsets.ModelViewSet):
     
 
 class appointmentViewSet(viewsets.ModelViewSet):
-    queryset = client.objects.all()
+    queryset = appointment.objects.all()
     serializer_class = appointmentSerializer
    
 
