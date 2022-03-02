@@ -1,10 +1,16 @@
 from rest_framework import routers
-from health.api import doctorViewSet, clientViewSet, appointmentViewSet
+from health.api import doctorViewSet, clientViewSet, appointmentViewSet, UserViewSet
+from django.urls import path,include
 
 
 router = routers.DefaultRouter()
-router.register('api/doctor',doctorViewSet,'doctors')
-router.register('api/client',clientViewSet,'clients')
-router.register('api/appointments',appointmentViewSet,'appointments')
+router.register(r'doctor',doctorViewSet,'doctors')
+router.register(r'client',clientViewSet,'clients')
+router.register(r'appointments',appointmentViewSet,'appointments')
+router.register(r'users', UserViewSet)
 
-urlpatterns = router.urls
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
+
