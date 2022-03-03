@@ -4,26 +4,28 @@ from health.serializers import doctorSerializer,clientSerializer,appointmentSeri
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from health.serializers import UserSerializer
+from rest_framework.permissions import IsAuthenticated
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `retrieve` actions.
-    """
+    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class doctorViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = doctor.objects.all()
     serializer_class = doctorSerializer
     
 
 class clientViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = client.objects.all()
     serializer_class = clientSerializer
     
 
 class appointmentViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = appointment.objects.all()
     serializer_class = appointmentSerializer
     
