@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    docstatus = models.BooleanField(default=True)
+    docstatus = models.BooleanField(default=True)           
+
 
 class client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
