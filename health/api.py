@@ -29,8 +29,7 @@ class appointmentViewSet(viewsets.ModelViewSet):
     queryset = appointment.objects.all()
     serializer_class = appointmentSerializer
     
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    
     
 
    
