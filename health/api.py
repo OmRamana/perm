@@ -29,7 +29,7 @@ class appointmentViewSet(viewsets.ModelViewSet):
     serializer_class = appointmentSerializer
     
     def get_queryset(self):
-        return  appointment.objects.filter(doctor=1)
+        return  appointment.objects.filter(doctor=self.request.user.id)
  
     
     
