@@ -25,10 +25,11 @@ class clientViewSet(viewsets.ModelViewSet):
     
 
 class appointmentViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = appointment.objects.filter(id = 3)
+    permission_classes = [IsAuthenticated]    
     serializer_class = appointmentSerializer
     
+    def get_queryset(self):
+        return  appointment.objects.filter(doctor=1)
  
     
     
