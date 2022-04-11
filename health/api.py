@@ -26,9 +26,10 @@ class clientViewSet(viewsets.ModelViewSet):
 
 class appointmentViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = appointment.objects.all()
+    queryset = appointment.objects.filter(id = 3)
     serializer_class = appointmentSerializer
     
+ 
     
     
 
