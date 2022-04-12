@@ -5,31 +5,13 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from health.serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
-
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class doctorViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = doctor.objects.all()
-    serializer_class = doctorSerializer
     
 
-class clientViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = client.objects.all()
-    serializer_class = clientSerializer
-    
-
-class appointmentViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]    
+class appointmentViewSet(viewsets.ModelViewSet):       
     serializer_class = appointmentSerializer
     
     def get_queryset(self):
-        return  appointment.objects.filter(doctor=self.request.user.id)
+        return  appointment.objects.filter(user_id = self.request.user.id) #filter(doctor = self.request.user.id)
  
     
     
